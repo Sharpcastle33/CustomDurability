@@ -11,7 +11,21 @@ import org.bukkit.inventory.meta.ItemMeta;
 import net.md_5.bungee.api.ChatColor;
 
 public class DurabilityManager {
-
+	
+	//CONSTANTS
+	//constants for Lore
+	int LORE_DURABILITY = 1;
+    String STR_DURABILITY = "Durability: ";
+	String STR_DELIMITER = " / ";
+	//constants for integer placement here: durability: cur / max
+    int CURRENT_DURABILITY = 0;
+    int MAX_DURABILITY = 1;
+	
+    
+	/**
+	 * String getCustomDurability(ItemStack item)
+	 * returns the String containing the CustomDurability
+	 */
 	public static String getDurabilityLore(ItemStack item) {
 		
 		//Check if Item even has Meta

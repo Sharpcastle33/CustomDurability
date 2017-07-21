@@ -7,14 +7,15 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class DamageListener extends CustomDurability implements Listener {
+public class DamageListener extends DurabilityManager implements Listener {
 
+	
 	@EventHandler
 	public void onItemDamage(PlayerItemDamageEvent event) {
 		if(!(event.isCancelled()))
 		{
 			ItemStack item =  event.getItem();
-			String lore = getCustomDurability(item);
+			String lore = getDurabilityLore(item);
 			
 			if(lore != null) {
 				List<Integer> dur = getDurability(lore);

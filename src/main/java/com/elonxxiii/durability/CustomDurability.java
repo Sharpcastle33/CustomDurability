@@ -2,15 +2,6 @@ package com.elonxxiii.durability;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.*;
-
-
 public class CustomDurability extends JavaPlugin {
 	
 	
@@ -28,9 +19,6 @@ public class CustomDurability extends JavaPlugin {
 		getLogger().info("CustomDurability disabled");
 	}
 	
-	/**
-	 * String getCustomDurability(ItemStack item)
-	 * returns the String containing the CustomDurability
-	 */
+
 	
 }
