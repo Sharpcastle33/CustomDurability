@@ -39,7 +39,6 @@ public class DurabilityManager {
 				for(int i = 0; i < lore.size(); i++){
 					if(lore.get(i).contains(ChatColor.GRAY + "Durability:")) {
 						//return the String with durability
-						//return lore.get(LORE_DURABILITY);
 						return lore.get(i);
 					}
 				}
