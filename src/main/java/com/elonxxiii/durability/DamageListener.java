@@ -20,8 +20,8 @@ public class DamageListener extends DurabilityManager implements Listener {
 			Bukkit.getServer().getLogger().info("Lore: " + lore);			
 			if(lore != null) {
 				List<Integer> dur = getDurability(lore);
-				int cur = dur.get(CURRENT_DURABILITY);
-				int max = dur.get(MAX_DURABILITY);
+				int cur = dur.get(0);
+				int max = dur.get(1);
 				setNewDurability(item, cur-event.getDamage(), max);
 			}
 		}

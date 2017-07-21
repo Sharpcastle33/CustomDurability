@@ -17,7 +17,7 @@ public class DurabilityManager {
 	//constants for Lore
 	int LORE_DURABILITY = 1;
     String STR_DURABILITY = "Durability: ";
-	String STR_DELIMITER = " / ";
+	String STR_DELIMITER = "/";
 	//constants for integer placement here: durability: cur / max
     int CURRENT_DURABILITY = 0;
     int MAX_DURABILITY = 1;
@@ -50,6 +50,28 @@ public class DurabilityManager {
 		return null;
 	}
 	
+	public static int getDurabilityLine(ItemStack item){
+		//Check if Item even has Meta
+				if(item.hasItemMeta()) {
+					ItemMeta meta = item.getItemMeta();
+					//Check if Item has Lore
+					if(meta.hasLore()) {
+						List<String> lore = meta.getLore();
+						//Check if Item has custom durability
+						
+						for(int i = 0; i < lore.size(); i++){
+							if(lore.get(i).contains(ChatColor.GRAY + "Durability:")) {
+								Bukkit.getServer().getLogger().info("Contains dura lore!");
+								//return the String with durability
+								return i;
+							}
+						}
+						/**/
+					}
+				}
+				return 10;
+	}
+	
 	
 	/**
 	 * List<Integer> getDurability(String lore)
@@ -60,12 +82,20 @@ public class DurabilityManager {
 	 */
 	public List<Integer> getDurability(String lore) {
 		if(lore == null){
-		
+			return null;
 		}
+		
 		List<Integer> dur = new ArrayList<Integer>();
-		Matcher m = Pattern.compile("\\d+").matcher(lore);
+		/*Matcher m = Pattern.compile("\\d+").matcher(lore);
 		while(m.find())
 			dur.add(Integer.parseInt(m.group()));
+		
+		return dur;*/
+		String[] a = lore.split("Durability: ");
+		String[] duras = a[1].split("/");
+		dur.add(Integer.parseInt(duras[0]));
+		dur.add(Integer.parseInt(duras[1]));
+
 		
 		return dur;
 		
@@ -87,19 +117,22 @@ public class DurabilityManager {
 		}
 
 		//create String with new values for durability
-		String newdur = STR_DURABILITY + Integer.toString(cur) + STR_DELIMITER + Integer.toString(max);	
+		String newdur = ChatColor.GRAY + STR_DURABILITY + Integer.toString(cur) + STR_DELIMITER + Integer.toString(max);	
 		ItemMeta meta = item.getItemMeta();
 		//get all the lore
 		List<String> newlore = meta.getLore();
 		//overwrite the durability-row
-		newlore.set(LORE_DURABILITY, newdur);
+		newlore.set(getDurabilityLine(item), newdur);
 		//set the new lore
 		meta.setLore(newlore);
+		item.setItemMeta((meta));
 			
 		//update the vanilla durability bar
 		int vanillaMax = item.getType().getMaxDurability();
 		int vanillaCur = vanillaMax - (vanillaMax * cur / max);
 		item.setDurability((short) vanillaCur);
+		Bukkit.getServer().getLogger().info("Max durability: " + item.getType().getMaxDurability() + "Current: " + cur + "setting to: " + vanillaCur);
+		
 		
 		return;
 	}
