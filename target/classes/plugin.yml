@@ -1,0 +1,5 @@
+name: CustomDurability
+version: 1.0.0
+authors: [ElonXXIII, Sharpcastle33]
+main: com.elonxxiii.durability.CustomDurability
+description: Custom durability for items.
