@@ -108,13 +108,6 @@ public class DurabilityManager {
 	 * updates the vanilla durability bar
 	 */
 	public void setNewDurability(ItemStack item, int cur, int max) {
-		//check if item is nearly broken
-		if(cur <= 1) {
-			//set to last hit
-			cur = 1;
-			//next hit will break item
-			item.setDurability((short) 1600);
-		}
 
 		//create String with new values for durability
 		String newdur = ChatColor.GRAY + STR_DURABILITY + Integer.toString(cur) + STR_DELIMITER + Integer.toString(max);	
@@ -133,6 +126,13 @@ public class DurabilityManager {
 		item.setDurability((short) vanillaCur);
 		Bukkit.getServer().getLogger().info("Max durability: " + item.getType().getMaxDurability() + "Current: " + cur + "setting to: " + vanillaCur);
 		
+		//check if item is nearly broken
+		if(cur <= 1) {
+			//set to last hit
+			cur = 1;
+			//next hit will break item
+			item.setDurability((short) 1600);
+		}
 		
 		return;
 	}
