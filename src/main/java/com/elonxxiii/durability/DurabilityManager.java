@@ -71,29 +71,33 @@ public class DurabilityManager {
 	/**
 	 * void setNewDurability(ItemStack item, int cur, int max)
 	 * updates the durability in the lore
+	 * item cannot be broken with this method
 	 * to do:
-	 * also breaks the item
-	 * also updates the vanilla durability bar
+	 * updates the vanilla durability bar
 	 */
 	public void setNewDurability(ItemStack item, int cur, int max) {
-		//check if item broke
-		if(cur >= 0) {
-			//break the item
-			item.setDurability((short) 0);
+		//check if item is nearly broken
+		if(cur <= 1) {
+			//set to last hit
+			cur = 1;
+			//next hit will break item
+			item.setDurability((short) 1600);
 		}
-		else {
-			//create String with new values for durability
-			String newdur = STR_DURABILITY + Integer.toString(cur) + STR_DELIMITER + Integer.toString(max);	
-			ItemMeta meta = item.getItemMeta();
-			//get all the lore
-			List<String> newlore = meta.getLore();
-			//overwrite the durability-row
-			newlore.set(LORE_DURABILITY, newdur);
-			//set the new lore
-			meta.setLore(newlore);
+
+		//create String with new values for durability
+		String newdur = STR_DURABILITY + Integer.toString(cur) + STR_DELIMITER + Integer.toString(max);	
+		ItemMeta meta = item.getItemMeta();
+		//get all the lore
+		List<String> newlore = meta.getLore();
+		//overwrite the durability-row
+		newlore.set(LORE_DURABILITY, newdur);
+		//set the new lore
+		meta.setLore(newlore);
 			
-			//update the vanilla durability bar
-		}
+		//update the vanilla durability bar
+		//check wich base-item is used
+		
+	
 		return;
 	}
 }
