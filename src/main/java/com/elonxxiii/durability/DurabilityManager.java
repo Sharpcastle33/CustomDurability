@@ -12,7 +12,7 @@ import net.md_5.bungee.api.ChatColor;
 
 public class DurabilityManager {
 
-	public static String getCustomDurability(ItemStack item) {
+	public static String getDurabilityLore(ItemStack item) {
 		
 		//Check if Item even has Meta
 		if(item.hasItemMeta()) {
@@ -26,6 +26,7 @@ public class DurabilityManager {
 					if(lore.get(i).contains(ChatColor.GRAY + "Durability:")) {
 						//return the String with durability
 						//return lore.get(LORE_DURABILITY);
+						return lore.get(i);
 					}
 				}
 				/**/
