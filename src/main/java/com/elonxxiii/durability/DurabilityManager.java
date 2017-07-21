@@ -72,7 +72,6 @@ public class DurabilityManager {
 	 * void setNewDurability(ItemStack item, int cur, int max)
 	 * updates the durability in the lore
 	 * item cannot be broken with this method
-	 * to do:
 	 * updates the vanilla durability bar
 	 */
 	public void setNewDurability(ItemStack item, int cur, int max) {
@@ -95,9 +94,10 @@ public class DurabilityManager {
 		meta.setLore(newlore);
 			
 		//update the vanilla durability bar
-		//check wich base-item is used
+		int vanillaMax = item.getType().getMaxDurability();
+		int vanillaCur = vanillaMax - (vanillaMax * cur / max);
+		item.setDurability((short) vanillaCur);
 		
-	
 		return;
 	}
 }
