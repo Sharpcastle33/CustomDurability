@@ -93,24 +93,28 @@
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="com/elonxxiii/durability/DataLoader.html#DataLoader--">DataLoader()</a></span> - Constructor for class com.elonxxiii.durability.<a href="com/elonxxiii/durability/DataLoader.html" title="class in com.elonxxiii.durability">DataLoader</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/elonxxiii/durability/DurabilityManager.html" title="class in com.elonxxiii.durability"><span class="typeNameLink">DurabilityManager</span></a> - Class in <a href="com/elonxxiii/durability/package-summary.html">com.elonxxiii.durability</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/DurabilityManager.html#DurabilityManager--">DurabilityManager()</a></span> - Constructor for class com.elonxxiii.durability.<a href="com/elonxxiii/durability/DurabilityManager.html" title="class in com.elonxxiii.durability">DurabilityManager</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="I:G">
 <!--   -->
 </a>
 <h2 class="title">G</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/CustomDurability.html#getCustomDurability-org.bukkit.inventory.ItemStack-">getCustomDurability(ItemStack)</a></span> - Method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/CustomDurability.html" title="class in com.elonxxiii.durability">CustomDurability</a></dt>
-<dd>
-<div class="block">String getCustomDurability(ItemStack item)
- returns the String containing the CustomDurability</div>
-</dd>
-<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/CustomDurability.html#getDurability-java.lang.String-">getDurability(String)</a></span> - Method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/CustomDurability.html" title="class in com.elonxxiii.durability">CustomDurability</a></dt>
+<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/DurabilityManager.html#getDurability-java.lang.String-">getDurability(String)</a></span> - Method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/DurabilityManager.html" title="class in com.elonxxiii.durability">DurabilityManager</a></dt>
 <dd>
 <div class="block">List<Integer> getDurability(String lore)
  returns the current and maximum durability
  Lore: Durability: 23/42
  dur[0] = 23 = dur[CURRENT_DURABILITY]
  dur[1] = 42 = dur[MAX_DURABILITY]</div>
+</dd>
+<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/DurabilityManager.html#getDurabilityLore-org.bukkit.inventory.ItemStack-">getDurabilityLore(ItemStack)</a></span> - Static method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/DurabilityManager.html" title="class in com.elonxxiii.durability">DurabilityManager</a></dt>
+<dd>
+<div class="block">String getCustomDurability(ItemStack item)
+ returns the String containing the CustomDurability</div>
 </dd>
 </dl>
 <a name="I:O">
@@ -143,13 +147,12 @@
 </a>
 <h2 class="title">S</h2>
 <dl>
-<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/CustomDurability.html#setNewDurability-org.bukkit.inventory.ItemStack-int-int-">setNewDurability(ItemStack, int, int)</a></span> - Method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/CustomDurability.html" title="class in com.elonxxiii.durability">CustomDurability</a></dt>
+<dt><span class="memberNameLink"><a href="com/elonxxiii/durability/DurabilityManager.html#setNewDurability-org.bukkit.inventory.ItemStack-int-int-">setNewDurability(ItemStack, int, int)</a></span> - Method in class com.elonxxiii.durability.<a href="com/elonxxiii/durability/DurabilityManager.html" title="class in com.elonxxiii.durability">DurabilityManager</a></dt>
 <dd>
 <div class="block">void setNewDurability(ItemStack item, int cur, int max)
  updates the durability in the lore
- to do:
- also breaks the item
- also updates the vanilla durability bar</div>
+ item cannot be broken with this method
+ updates the vanilla durability bar</div>
 </dd>
 </dl>
 <a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;</div>

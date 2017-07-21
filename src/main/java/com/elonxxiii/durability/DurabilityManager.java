@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -38,6 +39,7 @@ public class DurabilityManager {
 				
 				for(int i = 0; i < lore.size(); i++){
 					if(lore.get(i).contains(ChatColor.GRAY + "Durability:")) {
+						Bukkit.getServer().getLogger().info("Contains dura lore!");
 						//return the String with durability
 						return lore.get(i);
 					}
@@ -57,7 +59,9 @@ public class DurabilityManager {
 	 * dur[1] = 42 = dur[MAX_DURABILITY]
 	 */
 	public List<Integer> getDurability(String lore) {
+		if(lore == null){
 		
+		}
 		List<Integer> dur = new ArrayList<Integer>();
 		Matcher m = Pattern.compile("//d+").matcher(lore);
 		while(m.find())

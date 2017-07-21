@@ -2,6 +2,7 @@ package com.elonxxiii.durability;
 
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerItemDamageEvent;
@@ -16,7 +17,7 @@ public class DamageListener extends DurabilityManager implements Listener {
 		{
 			ItemStack item =  event.getItem();
 			String lore = getDurabilityLore(item);
-			
+			Bukkit.getServer().getLogger().info("Lore: " + lore);			
 			if(lore != null) {
 				List<Integer> dur = getDurability(lore);
 				int cur = dur.get(CURRENT_DURABILITY);
