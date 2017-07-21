@@ -8,9 +8,11 @@ import java.util.regex.Pattern;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class DurabilityManager {
 
-	public String getCustomDurability(ItemStack item) {
+	public static String getCustomDurability(ItemStack item) {
 		
 		//Check if Item even has Meta
 		if(item.hasItemMeta()) {
@@ -19,10 +21,14 @@ public class DurabilityManager {
 			if(meta.hasLore()) {
 				List<String> lore = meta.getLore();
 				//Check if Item has custom durability
-				if(lore.get(LORE_DURABILITY).contains("Durability")) {
-					//return the String with durability
-					return lore.get(LORE_DURABILITY);
+				
+				for(int i = 0; i < lore.size(); i++){
+					if(lore.get(i).contains(ChatColor.GRAY + "Durability:")) {
+						//return the String with durability
+						//return lore.get(LORE_DURABILITY);
+					}
 				}
+				/**/
 			}
 		}
 		return null;

@@ -5,11 +5,16 @@ public class Durability {
 	//constants
 		//config file for customizing would be nice
 		//constants for Lore
-		final int LORE_DURABILITY = 1;
-		final String STR_DURABILITY = "Durability: ";
-		final String STR_DELIMITER = " / ";
+	  int LORE_DURABILITY = 1;
+      String STR_DURABILITY = "Durability: ";
+	  String STR_DELIMITER = " / ";
 		//constants for integer placement here: durability: cur / max
-		final int CURRENT_DURABILITY = 0;
-		final int MAX_DURABILITY = 1;
+     int CURRENT_DURABILITY = 0;
+     int MAX_DURABILITY = 1;
+    
+    public Durability(int current, int max){
+    	CURRENT_DURABILITY = current;
+    	MAX_DURABILITY = max;
+    }
 		
 }
