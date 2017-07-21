@@ -60,7 +60,7 @@ public class DurabilityManager {
 	public List<Integer> getDurability(String lore) {
 		
 		List<Integer> dur = new ArrayList<Integer>();
-		Matcher m = Pattern.compile("//d+").matcher(lore);
+		Matcher m = Pattern.compile("\\d+").matcher(lore);
 		while(m.find())
 			dur.add(Integer.parseInt(m.group()));
 		
